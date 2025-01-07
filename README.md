@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Meetly - Meeting Scheduling Platform
 
-First, run the development server:
+## Overview
+
+Meetly is a modern meeting scheduling platform built with Next.js, designed to simplify the process of managing appointments and scheduling meetings. It provides a seamless interface for creating events, managing availability, and handling bookings with Google Calendar integration, allowing users to join meetings with Google Meet.
+
+![Meetly Logo](/public/logo.svg)
+
+
+## 🌟 Features
+
+- **Event Management**
+  - Create customizable event types
+  - Set duration and privacy settings
+  - Manage event descriptions and details
+
+- **Smart Scheduling**
+  - Automated time slot generation
+  - Custom availability settings
+
+- **Google Calendar Integration**
+  - Automatic meeting link generation
+  - Real-time calendar syncing
+  - Meeting confirmations
+
+- **User Management**
+  - Custom profile pages
+  - Personalized scheduling links
+  - User authentication via Clerk
+
+## Technologies
+
+### Frontend
+- **Next.js 14** with App Router
+- **Tailwind CSS** for styling
+- **shadcn/ui** for UI components
+- **React Hook Form** for form handling
+- **Zod** for validation
+
+### Backend
+- **Next.js API Routes** (Server Actions)
+- **Prisma ORM** for database management
+- **PostgreSQL** database
+- **Google Calendar API** for calendar integration
+- **Clerk** for authentication
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/abhishekrch/meetly.git
+cd meetly
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+### 3. Environment Configuration
+
+Create a `.env` file in the root directory and add the following environment variables:
+
+```env
+DATABASE_URL="your_postgresql_url"
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_publishable_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+```
+
+### 4. Run Database Migrations
+
+Run the following command to set up your database schema:
+
+```bash
+npx prisma migrate dev
+```
+
+### 5. Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application will be available at `http://localhost:3000`.
