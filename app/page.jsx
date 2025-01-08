@@ -1,3 +1,4 @@
+import DemoPopup from "@/components/demo-credentials";
 import Testimonials from "@/components/testimonials";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -71,6 +72,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <DemoPopup />
 
       <div className="mb-24">
         <h2 className="key-feature-title">
