@@ -5,42 +5,35 @@ import { Card, CardContent } from "./ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "Marketing Manager",
-    content:
-      "Meetly has transformed how I manage my team's meetings. It's intuitive and saves us hours every week!",
-    image: "https://i.pravatar.cc/150?img=1",
-  },
-  {
-    name: "David Lee",
-    role: "Freelance Designer",
-    content:
-      "As a freelancer, Meetly helps me stay organized and professional. My clients love how easy it is to book time with me.",
-    image: "https://i.pravatar.cc/150?img=2",
-  },
-  {
-    name: "Emily Chen",
-    role: "Startup Founder",
-    content:
-      "Meetly streamlined our hiring process. Setting up interviews has never been easier!",
-    image: "https://i.pravatar.cc/150?img=3",
-  },
-  {
-    name: "Michael Brown",
-    role: "Sales Executive",
-    content:
-      "I've seen a 30% increase in my meeting bookings since using Meetly. It's a game-changer for sales professionals.",
-    image: "https://i.pravatar.cc/150?img=4",
-  },
-];
+import { useEffect, useState } from "react";
 
 const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+  );  
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+    try {
+      const response = await fetch('/api/testimonials-data');
+      const data = await response.json();
+      setTestimonials(data);
+    } catch(e) {
+      console.error("Error Fetching Testimonials data", e);
+    } finally {
+      setLoading(false);
+    }
+  }
+  fetchTestimonials();
+}, []);
+
+if (loading) {
+  return <div>Loading Testimonials</div>
+}
+
   return (
     <Carousel
       plugins={[plugin.current]}
