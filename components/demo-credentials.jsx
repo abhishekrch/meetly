@@ -39,7 +39,7 @@ const DemoPopup = () => {
             <Input id="name" defaultValue="etherabhishek@gmail.com" />
           </div>
           <div className="space-y-1">
-            <Label htmlFor="username">Username</Label>
+            <Label htmlFor="username">Password</Label>
             <Input id="username" defaultValue="testusermeetly" />
           </div>
         </CardContent>

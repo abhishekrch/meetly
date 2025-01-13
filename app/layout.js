@@ -6,7 +6,7 @@ import  CreateEventDrawer  from "@/components/create-event";
 
 export const metadata = {
   title: "Meetly",
-  description: "Meting Scheduling App",
+  description: "Meeting Scheduling App",
 };
 
 const inter = Inter({ subsets: ["latin"] });
